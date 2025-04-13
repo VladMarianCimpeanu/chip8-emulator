@@ -11,6 +11,7 @@ namespace chip8::display {
             int r();
             int g();
             int b();
+            bool is_white();
         private:
             int r_, g_, b_;
     };
@@ -18,20 +19,8 @@ namespace chip8::display {
     class IDisplay{
         public:
             virtual ~IDisplay() = default;
-            virtual void reset() = 0;
+            virtual void clear_screen() = 0;
             virtual void draw_rectangle(int x, int y, int w, int h, Color color) = 0;
-    };
-
-    class LinuxCliDisplay: public IDisplay {
-
-        private:
-            WINDOW * window;
-
-        public:
-            LinuxCliDisplay();
-            ~LinuxCliDisplay();
-            void reset() override;
-            void draw_rectangle(int x, int y, int w, int h, Color color) override;
     };
 
 }

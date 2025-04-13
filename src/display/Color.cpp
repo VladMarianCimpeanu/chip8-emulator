@@ -18,4 +18,8 @@ namespace chip8::display {
     int Color::g() { return this->g_;}
     int Color::b() { return this->b_;}
 
+    bool Color::is_white() {
+        return this->r_ == 255 && this->b_ == 255 && this->g_ == 255;
+    }
+
 }      
