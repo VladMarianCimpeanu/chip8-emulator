@@ -47,9 +47,9 @@ namespace chip8::display{
 
         this->display_d.clear();
         chip8::display::Color* current_color;
-
-        for (int x = 0; x < this->window_width; x ++) {
-            for(int y = 0; y < this->window_height  ; y ++) {
+        
+        for(int y = this->window_height - 1; y >= 0; y --) {
+            for (int x = 0; x < this->window_width - 1 ; x ++) {
                 current_color = &(this->display_matrix[x][y]);
 
                 if (current_color->is_white()){
@@ -82,6 +82,5 @@ namespace chip8::display{
 
         this->refresh_display();
     }
-
 
 }
